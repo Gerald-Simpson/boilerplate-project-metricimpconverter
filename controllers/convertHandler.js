@@ -11,6 +11,7 @@ function ConvertHandler() {
     let regex = /^[0-9./]+/;
     let num = input.match(regex);
     if (num === null) return 1; //If no number given, return 1
+    if (num[0].includes('//')) return 'invalid number';
     let result = Math.round((eval(num[0]) + Number.EPSILON) * 100000) / 100000;
     if (result === 'NaN') {
       return 'invalid number';
