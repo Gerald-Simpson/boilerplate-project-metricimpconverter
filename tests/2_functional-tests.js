@@ -14,15 +14,17 @@ suite('Functional Tests', function () {
       .query({ input: '10L' })
       .end(function (err, res) {
         assert.equal(res.status, 200);
-        assert.equal(res.body.initNum, 10);
-        assert.equal(res.body.initUnit, 'L');
-        assert.equal(res.body.returnNum, 2.64172);
-        assert.equal(res.body.returnUnit, 'gal');
-        assert.equal(res.body.string, '10 liters converts to 2.64172 gallons');
+        assert.deepEqual(res.body, {
+          initNum: 10,
+          initUnit: 'L',
+          returnNum: 2.64172,
+          returnUnit: 'gal',
+          string: '10 liters converts to 2.64172 gallons',
+        });
         done();
       });
   });
-  test('Convert a invalid input such as 32g: GET request to /api/convert.', function (done) {
+  test('Convert an invalid input such as 32g: GET request to /api/convert.', function (done) {
     chai
       .request(server)
       .get('/api/convert')
@@ -34,7 +36,7 @@ suite('Functional Tests', function () {
         done();
       });
   });
-  test('Convert a invalid number such as 3/7.2/4kg: GET request to /api/convert.', function (done) {
+  test('Convert an invalid number such as 3/7.2/4kg: GET request to /api/convert.', function (done) {
     chai
       .request(server)
       .get('/api/convert')
@@ -65,11 +67,13 @@ suite('Functional Tests', function () {
       .query({ input: 'kg' })
       .end(function (err, res) {
         assert.equal(res.status, 200);
-        assert.equal(res.body.initNum, 1);
-        assert.equal(res.body.initUnit, 'kg');
-        assert.equal(res.body.returnNum, 2.20462);
-        assert.equal(res.body.returnUnit, 'lbs');
-        assert.equal(res.body.string, '1 kilograms converts to 2.20462 pounds');
+        assert.deepEqual(res.body, {
+          initNum: 1,
+          initUnit: 'kg',
+          returnNum: 2.20462,
+          returnUnit: 'lbs',
+          string: '1 kilograms converts to 2.20462 pounds',
+        });
         done();
       });
   });
