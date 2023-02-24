@@ -25,6 +25,8 @@ function ConvertHandler() {
     let units = ['mi', 'km', 'lbs', 'kg', 'gal', 'l'];
     if (!units.includes(unit)) {
       return 'invalid unit';
+    } else if (unit === 'l') {
+      return 'L';
     }
     return unit;
   };
@@ -39,7 +41,7 @@ function ConvertHandler() {
     } else if (initUnit === 'kg') {
       return 'lbs';
     } else if (initUnit === 'gal') {
-      return 'l';
+      return 'L';
     } else {
       return 'gal';
     }
