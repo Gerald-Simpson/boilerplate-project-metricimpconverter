@@ -44,7 +44,7 @@ suite('unit tests', function () {
       assert.strictEqual(convertHandler.getUnit('5lbs'), 'lbs');
       assert.strictEqual(convertHandler.getUnit('5kg'), 'kg');
       assert.strictEqual(convertHandler.getUnit('5gal'), 'gal');
-      assert.strictEqual(convertHandler.getUnit('5l'), 'l');
+      assert.strictEqual(convertHandler.getUnit('5l'), 'L');
     });
     test('should correctly return an error for an invalid input unit.', function () {
       assert.strictEqual(convertHandler.getUnit('5mil'), 'invalid unit');
@@ -58,7 +58,7 @@ suite('unit tests', function () {
       assert.strictEqual(convertHandler.getReturnUnit('km'), 'mi');
       assert.strictEqual(convertHandler.getReturnUnit('lbs'), 'kg');
       assert.strictEqual(convertHandler.getReturnUnit('kg'), 'lbs');
-      assert.strictEqual(convertHandler.getReturnUnit('gal'), 'l');
+      assert.strictEqual(convertHandler.getReturnUnit('gal'), 'L');
       assert.strictEqual(convertHandler.getReturnUnit('l'), 'gal');
     });
   });
@@ -77,7 +77,7 @@ suite('unit tests', function () {
       assert.strictEqual(convertHandler.convert(5, 'gal'), 18.92705);
     });
     test('should correctly convert L to gal.', function () {
-      assert.strictEqual(convertHandler.convert(5, 'l'), 1.32086);
+      assert.strictEqual(convertHandler.convert(5, 'L'), 1.32086);
     });
     test('should correctly convert mi to km.', function () {
       assert.strictEqual(convertHandler.convert(5, 'mi'), 8.0467);

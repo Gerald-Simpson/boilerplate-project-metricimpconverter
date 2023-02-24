@@ -84,7 +84,7 @@ function ConvertHandler() {
       result = initNum / lbsToKg;
     } else if (initUnit === 'gal') {
       result = initNum * galToL;
-    } else if (initUnit === 'l') {
+    } else if (initUnit === 'L') {
       result = initNum / galToL;
     }
     return Math.round((result + Number.EPSILON) * 100000) / 100000;
