@@ -26,7 +26,8 @@ module.exports = function (app) {
     };
     if (String(returnNum).includes('invalid')) {
       res.json(returnNum);
+    } else {
+      res.json(jsonResult);
     }
-    res.json(jsonResult);
   });
 };
