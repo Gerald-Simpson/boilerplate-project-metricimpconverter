@@ -21,7 +21,11 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     let regex = /[a-zA-Z]+/;
-    let unit = input.match(regex)[0].toLowerCase();
+    let unit = input.match(regex);
+    if (unit === null) {
+      return 'invalid unit';
+    }
+    unit = unit[0].toLowerCase();
     let units = ['mi', 'km', 'lbs', 'kg', 'gal', 'l'];
     if (!units.includes(unit)) {
       return 'invalid unit';
